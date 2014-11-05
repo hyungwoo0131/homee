@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  
+  <title>JS Bin</title>
+  <script>
+    var x=0;
+  </script>
+  <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  
+  <style>
+     .back {
+        background-image: url('http://images.forwallpaper.com/files/thumbs/preview/37/374733__green-forest-trail_p.jpg');
+       width:100%;
+       height:500px;
+        }
+    .character {
+      position: relative;
+      left: 450px;
+      top: 180px;
+      -webkit-transition-property: left;
+      -webkit-transition-duration: 1s;
+      -o-transition-property: left;
+      -o-transition-duration: 1s;
+      -moz-transition-property: left;
+      -moz-transition-duration: 1s;
+      -ms-transition-property: left;
+      -ms-transition-duration: 1s;
+      transition-property: left;
+      transition-duration: 1s;
+    }
+    .part {
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      -webkit-transition: transform 0.5s;
+    }
+
+    .head {
+      left: 10px;
+      width: 100px;
+      height: 100px;
+      -webkit-transform-origin: 50% 90%;
+      z-index: 5;
+    }
+    .body {
+      top: -2px;
+      left: 10px;
+      width: 100px;
+      height: 100px;
+    }
+    .left-arm {
+      width: 10px;
+      top: 40px;
+      left: 60px;
+      height: 20px;
+      -webkit-transform-origin: 50% 10%;
+      -webkit-transform: rotate(30deg);
+      z-index: -2;
+    }
+    .right-arm {
+      width: 10px;
+      top: 40px;
+      left: 60px;
+      height: 20px;
+      -webkit-transform-origin: 50% 10%;
+      z-index: 2;
+      -webkit-transform: rotate(30deg);
+    }
+    .left-leg {
+      top: 55px;
+      left: 50px;
+      width: 15px;
+      height: 40px;
+      -webkit-transform-origin: 50% 10%;
+      z-index: -1;
+      -webkit-transform: rotate(30deg);
+    }
+    .right-leg {
+      top: 55px;
+      left: 55px;
+      width: 15px;
+      height: 40px;
+      -webkit-transform-origin: 50% 10%;
+      z-index: 1;
+      -webkit-transform: rotate(30deg);
+    }
+    
+    .swing {
+      -webkit-transform: rotate(-50deg);
+    }
+    img {width:100%;}
+  </style>
+  <script>
+    function Move(x) {
+      if(x==1) {
+      window.setInterval(function() { 
+        $('.left-arm').toggleClass('swing'); 
+        $('.right-arm').toggleClass('swing'); 
+        $('.left-leg').toggleClass('swing'); 
+        $('.right-leg').toggleClass('swing'); 
+        $('.character').css('left','+=10'); 
+      }, 700); 
+      }
+      else if(x==2) {
+      window.setInterval(function() { 
+        $('.left-arm').toggleClass('swing'); 
+        $('.right-arm').toggleClass('swing'); 
+        $('.left-leg').toggleClass('swing'); 
+        $('.right-leg').toggleClass('swing'); 
+        $('.character').css('left','+=10'); 
+      }, 700); 
+      }
+    }
+  </script>
+  <style>
+    button:hover {
+      color: #eee;
+    }  
+  </style>
+</head>
+<body>
+  <div class="character">
+    <div class="part head"><img class="picture" src=https://dl.dropboxusercontent.com/u/281371760/pro/%EB%A8%B8%EB%A6%AC.png alt="picture"></div>
+    <div class="part body"><img class="picture" src=https://dl.dropboxusercontent.com/u/281371760/pro/%EB%AA%B8%ED%86%B5.png alt="picture"></div>
+    <div class="part left-arm swing"><img class="picture" src=https://dl.dropboxusercontent.com/u/281371760/pro/%EC%99%BC%ED%8C%94.png alt="picture"></div>
+    <div class="part left-leg"><img class="picture" src=https://dl.dropboxusercontent.com/u/281371760/pro/%EC%99%BC%EB%B0%9C.png alt="picture"></div>
+    <div class="part right-arm"><img class="picture" src=https://dl.dropboxusercontent.com/u/281371760/pro/%EC%98%A4%EB%A5%B8%ED%8C%94.png alt="picture"></div>
+    <!-- <div class="part left-leg"><img class=https://dl.dropboxusercontent.com/u/281371760/pro/%EC%99%BC%EB%B0%9C.png alt="picture"></div> -->
+    <div class="part right-leg swing"><img class="picture" src=https://dl.dropboxusercontent.com/u/281371760/pro/%EC%98%A4%EB%A5%B8%EB%B0%9C.png alt="picture"></div>
+  </div>
+  
+  <div class="back">
+  <div class="character"></div>
+  <button onclick="Move(1)">></button> 
+  <button onclick="Move(2)">right</button> 
+  </div>
+</body>
+</html>
